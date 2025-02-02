@@ -6,8 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
-
+    <h1>Blog Posts</h1>
+    <a href="/add">Add a New Blog Post</a>
+    <br><br>
+    {% for post in posts %}
+        <div>
+            <h2>{{ post.title }}</h2>
+            <p><strong>Author:</strong> {{ post.author }}</p>
+            <p>{{ post.content }}</p>
+            <form action="/delete/{{ post.id }}" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('are you sure you want this?');">DELETE</button>
+            </form>
+            <form action="/update/{{ post.id }}" method="POST" style=" margin-left:100px;">
+                <a href="/update/{{ post.id}}">
+                <button type="submit">UPDATE</button>
+                </a>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
 </body>
 </html>
