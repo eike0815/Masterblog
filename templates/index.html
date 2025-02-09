@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Masterblog</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
@@ -18,14 +18,16 @@
             <h2>{{ post.title }}</h2>
             <p><strong>Author:</strong> {{ post.author }}</p>
             <p>{{ post.content }}</p>
-            <form action="/delete/{{ post.id }}" method="POST" style="display:inline;">
-            <button type="submit" onclick="return confirm('are you sure you want this?');">DELETE</button>
-            </form>
-            <form action="/update/{{ post.id }}" method="POST" style=" margin-left:100px;">
-                <a href="/update/{{ post.id}}">
-                <button type="submit">UPDATE</button>
+                        <form action="/update/{{ post.id }}" method="POST" style="display:inline">
+                <a href="/update/{{ post.id }}">UPDATE
                 </a>
             </form>
+            <br><br>
+
+            <form action="/delete/{{ post.id }}" method="POST" style="display:inrow;">
+            <button type="submit" >DELETE</button>
+            </form>
+
         </div>
         <hr>
     {% endfor %}

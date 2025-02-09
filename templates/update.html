@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Blog Post</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
     <h1>Update Blog Post</h1>
 
-    <form action="{{ url_for('update', id=post['id']) }}" method="POST">
+    <form action="{{ url_for('update', post_id=post['id']) }}" method="POST">
         <label for="author">Author:</label><br>
         <input type="text" id="author" name="author" value="{{ post['author'] }}"><br>
-        <label for="title">Author:</label><br>
+        <label for="title">TITLE:</label><br>
         <input type="text" id="title" name="title" value="{{ post['title'] }}"><br>
-        <label for="content">Author:</label><br>
-        <input type="text" id="content" name="content" value="{{ post['content'] }}"><br>
+        <label for="content">CONTENT:</label><br>
+        <input type="text" id="content" name="content" value="{{ post['content'] }}">
+        <br><br>
         <input type="submit" value="Update">
+
     </form>
 </body>
 </html>
